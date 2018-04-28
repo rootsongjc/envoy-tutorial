@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: edge-envoy
+  namespace: envoy-tutorial
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: edge-envoy
+    spec:
+      containers:
+      - name: edge-envoy
+        image: jimmysong/edge-envoy:step3
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        - containerPort: 8001
+          protocol: TCP
+        resources: {}
+      restartPolicy: Always
+status: {}

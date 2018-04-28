@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: usersvc
+  namespace: envoy-tutorial
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: usersvc
+    spec:
+      containers:
+      - name: usersvc
+        image: jimmysong/usersvc:step1
+        resources: {}
+      restartPolicy: Always
+status: {}
